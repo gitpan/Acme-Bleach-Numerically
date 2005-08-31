@@ -1,5 +1,5 @@
 #
-# $Id: 00-Require.t,v 0.1 2005/08/30 01:32:11 dankogai Exp dankogai $
+# $Id: 00-Require.t,v 0.1 2005/08/30 01:32:11 dankogai Exp $
 #
 use strict;
 use Test::More tests => 3;

@@ -3,9 +3,9 @@ package Acme::Bleach::Numerically;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.1 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.2 $ =~ /(\d+)/g;
 our $MAX_SIZE = 0x7fff_ffff;
-use Math::BigInt;
+use Math::BigInt lib => 'GMP'; # faster if there, fallbacks if not
 use Math::BigFloat;
 use Math::BigRat;
 
@@ -63,7 +63,7 @@ sub import{
 		    die $@;
 		}
 	    }
-	    $src =~ s/#use Acme::Bleach::Numerically;\n//;
+	    $src =~ s/#use Acme::Bleach::Numerically;\n*//;
 	    open my $out, ">:raw", $0 or die "$0 : $!";
 	    print $out 
 		"use ", __PACKAGE__, ";\n", 

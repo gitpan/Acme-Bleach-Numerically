@@ -1,7 +1,14 @@
 # Revision history for Perl extension Acme::Bleach::Numerically
 #
-# $Id: Changes,v 0.1 2005/08/30 01:32:11 dankogai Exp dankogai $
+# $Id: Changes,v 0.2 2005/08/31 21:52:17 dankogai Exp dankogai $
 #
-$Revision: 0.1 $ $Date: 2005/08/30 01:32:11 $
+$Revision: 0.2 $ $Date: 2005/08/31 21:52:17 $
+! Makefile.pl
+  s/5.008007/5.008001/ # I hate h2xs sometimes!
+! lib/Acme/Bleach/Numerically.pm
+  Uses Math::BigInt::GMP if installed.  That saves time by 50% 
+  if Math::BigInt::GMP is installed.
+
+0.01 2005/08/30 01:32:11
 + *
   First Release.
