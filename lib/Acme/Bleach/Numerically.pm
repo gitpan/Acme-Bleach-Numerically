@@ -3,7 +3,7 @@ package Acme::Bleach::Numerically;
 use 5.008001;
 use strict;
 use warnings;
-our $VERSION = sprintf "%d.%02d", q$Revision: 0.3 $ =~ /(\d+)/g;
+our $VERSION = sprintf "%d.%02d", q$Revision: 0.4 $ =~ /(\d+)/g;
 our $MAX_SIZE = 0x7fff_ffff;
 use Math::BigInt lib => 'GMP'; # faster if there, fallbacks if not
 use Math::BigFloat;
@@ -51,7 +51,7 @@ sub import{
 	open my $in, "<:raw", $0 or die "$0 : $!";
 	my $src = join '', grep !/use\s*Acme::Bleach::Numerically/, <$in>;
 	close $in;
-	warn $src;
+	# warn $src;
 	if ($src =~ /^0\.[0-9]+;?\s*$/){ # bleached
 	    my $code = num2str($src);
 	    eval $code;
